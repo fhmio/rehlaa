@@ -1,0 +1,11 @@
+**/.env*
+**/node_modules/**
+**/.next/**
+**/build/**
+**/dist/**
+**/*.png
+**/*.jpg
+**/*.pdf
+**/coverage/**
+**/*.key
+**/*.pem

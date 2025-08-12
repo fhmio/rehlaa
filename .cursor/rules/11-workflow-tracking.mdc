@@ -1,0 +1,14 @@
+---
+name: workflow-tracking
+description: محرك المراحل وتتبع الطلب.
+globs: ["apps/admin/**/workflows/**","server/**/workflow*"]
+autoAttach: true
+tags: [workflow]
+---
+
+## Steps
+- استلام → تأكيد دفع → مراجعة مستندات → إرسال للوكيل → موافقة → تسليم.
+- كل انتقال يسجّل TrackingEvent + إشعار (حسب التفضيل).
+
+## Designer
+- محرر سحب-و-إفلات يحفظ Template لكل خدمة.

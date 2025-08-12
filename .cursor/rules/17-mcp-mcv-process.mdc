@@ -1,0 +1,14 @@
+---
+name: mcp-mcv-process
+description: تدفق العمل MCP → MCV ومعايير القبول.
+alwaysApply: true
+tags: [process]
+---
+
+## Definitions
+- MCP: أصغر نسخة مقنعة قابلة للاستخدام.
+- MCV: نسخة مكتملة لنطاق/Job.
+
+## DoD
+- اختبار، توثيق، واعتماد عبر PR Review.
+- لا ديون تقنية غير مبررة داخل MCP.

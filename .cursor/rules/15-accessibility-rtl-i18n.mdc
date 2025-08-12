@@ -1,0 +1,13 @@
+---
+name: accessibility-rtl-i18n
+description: الوصولية وRTL والتعريب.
+alwaysApply: true
+tags: [a11y, rtl, i18n]
+---
+
+## A11y
+- تسميات ARIA للمدخلات والأزرار. تباين ألوان >= 4.5:1.
+## RTL
+- استعمل logical properties. اختبر اتجاه النص بالعربية دائمًا.
+## i18n
+- نصوص قابلة للترجمة؛ لا strings ثابتة داخل المنطق.

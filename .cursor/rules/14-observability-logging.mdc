@@ -1,0 +1,13 @@
+---
+name: observability-logging
+description: الرصد واللوجز والمعايير.
+alwaysApply: true
+tags: [observability]
+---
+
+## Sentry
+- التقاط الأخطاء مع سياق المستخدم (بدون PII حسّاس).
+## Logs
+- بنية JSON: ts, level, event, meta.
+## Metrics
+- SLIs: زمن معالجة الطلب، معدل فشل الإرسال، وقت استجابة API.

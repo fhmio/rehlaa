@@ -1,0 +1,21 @@
+---
+name: frontend-next-web
+description: قواعد Next.js للواجهة العامة.
+globs: ["apps/web/**"]
+autoAttach: true
+tags: [web, next]
+---
+
+## Routing
+- App Router + Route Groups منظمة. لا pages router.
+- استخدم `generateMetadata` للـ SEO.
+
+## Data & Caching
+- fetch عبر utils مع `next: { revalidate }` أو `revalidateTag`.
+- لا Data Fetch في Client Components إلا للـ UI-only.
+
+## Forms
+- react-hook-form + zod-resolver. رسائل عربية واضحة.
+
+## 3D Section
+- حمل كسول لمشهد R3F، وأوقف الأنيميشن خارج viewport.

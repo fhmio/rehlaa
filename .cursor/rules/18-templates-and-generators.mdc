@@ -1,0 +1,14 @@
+---
+name: templates-and-generators
+description: توليد المكوّنات/الصفحات بأمان.
+manual: true
+tags: [templates, generators]
+---
+
+## Rules
+- استخدم قوالب جاهزة لإنشاء: Component, Hook, API route, Zod schema.
+- ألصق الأمثلة ثم عدّل الأسماء والمسارات فقط.
+- ممنوع إنشاء ملفات خارج المجلدات القياسية.
+
+## Call
+- عند الحاجة اطلب: "Generate component template" أو "Generate API handler template" مع المسار المطلوب.
