@@ -98,3 +98,8 @@ test("frequently loaded entry skill stays concise", () => {
   const wordCount = skill.trim().split(/\\s+/).length;
   assert.ok(wordCount < 500, `entry skill has ${wordCount} whitespace-delimited words; expected fewer than 500`);
 });
+
+
+test("unclear product work routes to design-first guidance when available", () => {
+  assert.match(skill, /unclear[^\n]*requirements[\s\S]*?`brainstorming`[\s\S]*?`rehla-specification`/i);
+});
