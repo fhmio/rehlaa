@@ -1,0 +1,2 @@
+# Git and release policy
+.cursor/rules/03-git-branching-and-commits.mdc documents feature/fix/chore branch naming and Conventional Commit prefixes. Inspect Git status and branch before acting. Never discard unrelated changes or perform shared push, merge, publishing, or release without authorization. Branch completion and product release are distinct. Changesets was mentioned previously but no configuration was found in the inspected tree; verify before using its commands.
