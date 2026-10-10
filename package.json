@@ -9,7 +9,7 @@
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "test:skills": "node --test tests/agent-workflows/skill-system.test.mjs"
+    "test:skills": "node --test tests/agent-workflows/*.test.mjs"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
