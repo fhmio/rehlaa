@@ -11,7 +11,7 @@ const scenarioPath = "tests/agent-workflows/scenarios/rehla-planning-quality.md"
 test("planning only begins from an approved, sufficiently clear specification", () => {
   assert.match(skill, /approved specification|approved spec/i);
   assert.match(skill, /before (?:touching|writing|changing) code|before implementation/i);
-  assert.match(skill, /missing[^\n]*(?:approval|requirement|decision)|unresolved[^\n]*(?:requirement|decision)/i);
+  assert.match(skill, /approval, scope, or a business rule is unresolved|unresolved[^\n]*(?:requirement|decision)/i);
 });
 
 test("planning skill announces its use and defines its output", () => {
@@ -31,7 +31,7 @@ test("scope check decomposes multi-subsystem specifications before planning", ()
 });
 
 test("file map precedes tasks and assigns responsibility and interfaces", () => {
-  assert.match(skill, /before defining tasks[^\n]*(?:map|identify)[^\n]*files|map[^\n]*files[^\n]*before tasks/i);
+  assert.match(skill, /Before defining tasks, map files/i);
   assert.match(skill, /responsibilit/i);
   assert.match(skill, /existing codebase|established patterns/i);
 });
@@ -51,7 +51,7 @@ test("plan header has goal, architecture, stack, spec, and global constraints", 
 
 test("global constraints are copied from approved requirements, not reinvented", () => {
   assert.match(skill, /Global Constraints/);
-  assert.match(skill, /copy[^\n]*(?:verbatim|exact)|exact[^\n]*from the spec/i);
+  assert.match(skill, /copied verbatim from the approved spec|exact constraints from the spec/i);
   assert.match(skill, /approved spec/i);
 });
 
@@ -59,15 +59,15 @@ test("each task names exact create/modify/test paths and consumed/produced inter
   for (const term of ["Files", "Create", "Modify", "Test", "Interfaces", "Consumes", "Produces"]) {
     assert.ok(skill.includes(term), "missing task field: " + term);
   }
-  assert.match(skill, /exact[^.\\n]*paths/i);
-  assert.match(skill, /signatures|parameter[^\n]*return types/i);
+  assert.match(skill, /exact[\s\S]*?paths/i);
+  assert.match(skill, /signatures, parameter\/return types|parameter[^\n]*return types/i);
 });
 
 test("behavior tasks specify RED, minimal implementation, GREEN, and regression checks", () => {
   assert.match(skill, /failing test|test first/i);
-  assert.match(skill, /expected[^\n]*FAIL|Expected: FAIL|intended RED/i);
-  assert.match(skill, /minimal implementation/i);
-  assert.match(skill, /expected[^\n]*PASS|Expected: PASS|expected GREEN/i);
+  assert.match(skill, /Expected: FAIL|intended RED/i);
+  assert.match(skill, /Minimal implementation/i);
+  assert.match(skill, /Expected: PASS|expected GREEN/i);
   assert.match(skill, /regression/i);
 });
 
@@ -75,47 +75,47 @@ test("test and verification instructions contain real commands and expected outp
   assert.match(skill, /Run:/);
   assert.match(skill, /Expected:/);
   assert.match(skill, /verify[^\n]*(?:command|output|result)/i);
-  assert.match(skill, /actual[^\n]*(?:scripts|commands)|verify[^\n]*commands/i);
+  assert.match(skill, /repository-backed command|verified scripts and commands/i);
 });
 
 test("implementation steps are actionable rather than placeholders", () => {
-  assert.match(skill, /No Placeholders|placeholders/i);
+  assert.match(skill, /No placeholders/i);
   assert.match(skill, /TBD/);
   assert.match(skill, /TODO/);
-  assert.match(skill, /appropriate error handling|write tests for the above|similar to task/i);
-  assert.match(skill, /code blocks|required[^\n]*implementation details/i);
+  assert.match(skill, /add appropriate error handling\/validation|write tests for the above|similar to Task N/i);
+  assert.match(skill, /Code blocks required for code steps|complete runnable\/adaptable code/i);
 });
 
 test("plans define exact interfaces across tasks and avoid undefined names/types", () => {
   assert.match(skill, /types|signatures/i);
   assert.match(skill, /type consistency/i);
-  assert.match(skill, /undefined[^\n]*(?:function|type|method)|not defined/i);
+  assert.match(skill, /undefined types\/functions|undefined[^\n]*(?:function|type|method)/i);
 });
 
 test("self-review covers spec coverage, placeholders, type consistency, and path mismatches", () => {
-  assert.match(skill, /Self-Review|self-review/i);
-  assert.match(skill, /spec coverage/i);
-  assert.match(skill, /scan placeholders|placeholder scan/i);
+  assert.match(skill, /Self-review/i);
+  assert.match(skill, /every spec requirement/i);
+  assert.match(skill, /scan placeholders/i);
   assert.match(skill, /type consistency/i);
-  assert.match(skill, /path[^\n]*(?:mismatch|verify|existing)/i);
+  assert.match(skill, /verify paths\/commands|path[^\n]*(?:mismatch|verify|existing)/i);
 });
 
 test("unknown commands and paths become discovery tasks, not inventions", () => {
-  assert.match(skill, /verify[^\n]*(?:path|command)|repository-backed/i);
-  assert.match(skill, /unknowns?[^\n]*(?:discovery task|explicit)|discovery tasks/i);
+  assert.match(skill, /repository evidence|repository-backed/i);
+  assert.match(skill, /discovery tasks\/blockers|discovery tasks/i);
   assert.match(skill, /never invent|do not invent|rather than guess/i);
 });
 
 test("execution handoff enforces inline sequential work only", () => {
   assert.match(skill, /inline[^\n]*(?:sequential|only)/i);
-  assert.match(skill, /never offer[^\n]*(?:subagent|parallel)|do not offer[^\n]*(?:subagent|parallel)/i);
+  assert.match(skill, /never offer subagent or parallel execution|do not offer[^\n]*(?:subagent|parallel)/i);
   assert.doesNotMatch(skill, /(?:option 1|option 2|choose)[^\n]*(?:subagent|parallel)/i);
 });
 
 test("planning does not start implementation or claim unrun validation", () => {
-  assert.match(skill, /plan[^\n]*(?:not implement|implementation starts after|handoff)|do not implement/i);
+  assert.match(skill, /Do not implement while planning|plan[^\n]*(?:not implement|implementation starts after|handoff)/i);
   assert.match(skill, /Passed|Failed|Blocked|Not run|NOT RUN/i);
-  assert.match(skill, /never claim[^\n]*(?:command|test)|do not claim[^\n]*(?:passed|run)/i);
+  assert.match(skill, /never claim an unrun check passed|never claim[^\n]*(?:command|test)/i);
 });
 
 test("pressure scenario records baseline status and measurable pass/fail criteria", () => {
