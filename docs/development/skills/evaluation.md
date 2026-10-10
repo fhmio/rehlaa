@@ -2,13 +2,14 @@
 
 ## Structural suite
 Command: pnpm test:skills (configured as node --test tests/agent-workflows/*.test.mjs).
-The structural suite was run locally on the generated artifact tree earlier: 5 tests passed, 0 failed. The actual remote branch could not be cloned into this execution container, so the whole suite has not been run from a checkout of this branch.
-Remote inspection previously recorded 52 passing checks across core workflow skill metadata and references, plus 8/8 engineering skill file metadata/name/trigger/body checks. These are static checks only.
+The existing structural suite was previously run on the generated artifact tree: 5 tests passed, 0 failed. The actual remote branch could not be cloned into this execution container, so the complete suite has not been run from a checkout of this branch.
+Earlier remote static inspection recorded 52 passing checks across core workflow skill metadata/references and 8/8 engineering skill metadata/name/trigger/body checks. These are static checks only.
 
 ## Karpathy integration
-- RED baseline: the new Karpathy integration test was run in a minimal fixture before adding its target artifacts. Four tests failed; the primary assertion identified the missing Rehla Karpathy skill. Other failures reflected absent integration files in the fixture. This is test-shape evidence, not a baseline evaluation of an LLM.
-- GREEN structural: the same focused test was run in a populated isolated fixture after adding sample integration artifacts: 4 passed, 0 failed. This is a harness/structure check, not execution against the remote repository checkout and not a model behavior test.
-- REHLA-KARPATHY-001: scenario defined in tests/agent-workflows/scenarios/karpathy-guidelines.md. Model behavior evaluation remains NOT RUN because no agent evaluation runtime was found/configured here.
+- RED baseline: the new integration test was run in a minimal fixture before its target artifacts existed. Four tests failed; the primary assertion identified the missing Rehla Karpathy skill. The additional integration failures reflected missing files in that fixture. This is structural RED evidence, not baseline evaluation of an LLM.
+- GREEN structural fixture: the focused integration test ran in a populated isolated fixture: 4 passed, 0 failed. This does not mean the same test ran in a checkout of the remote repository and does not prove model behavior.
+- Remote source/static inspection after integration: 19/19 checks passed for skill presence/frontmatter, four principles, TDD/security/domain-gap guards, AGENTS/entry routing, Cursor activation, examples/scenario/docs presence, and test script configuration. A missing “verifiable” term in the Cursor rule was found by the first check and corrected before the 19/19 run.
+- REHLA-KARPATHY-001: scenario exists at tests/agent-workflows/scenarios/karpathy-guidelines.md. Model behavior evaluation remains NOT RUN because no agent evaluation runtime was found/configured here.
 - Full remote branch node test, pnpm install, root lint/typecheck/build/test, and CI: NOT RUN from a real checkout.
 
 ## Behavior scenarios
@@ -21,7 +22,7 @@ Remote inspection previously recorded 52 passing checks across core workflow ski
 | REHLA-SKILL-005 | Skill edited before baseline | NOT RUN — no agent evaluator |
 | REHLA-KARPATHY-001 | Think before coding, simplicity, surgical changes, goal-driven execution | NOT RUN — no agent evaluator |
 
-Each scenario has prompt and pass/fail criteria. A future run must record runtime/model, exact context, observed output, result, and untested dimensions. Do not report static checks as model-behavior passing.
+Each scenario has prompt and pass/fail criteria. A future run must record runtime/model, exact context, observed output, result, and untested dimensions. Static checks must not be reported as model-behavior passing.
 
 ## Repository checks
 Dependency install, root lint/typecheck/build/test, and CI were NOT RUN in this environment. Local clone failed because GitHub DNS/network access was unavailable. Root test script is configured as turbo run test, but workspace task scripts must be validated in a real checkout.
