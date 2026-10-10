@@ -27,3 +27,13 @@ test('Karpathy scenario documents pressure, scope boundaries, and observable che
   const body=read('tests/agent-workflows/scenarios/karpathy-guidelines.md');
   for(const term of ['ambiguous','minimal','unrelated','acceptance criteria','tests']) assert.ok(body.toLowerCase().includes(term.toLowerCase()),`missing scenario term ${term}`);
 });
+
+test('AGENTS.md makes skill loading a mandatory gate before work',()=>{
+  const body=read('AGENTS.md');
+  assert.match(body,/## Mandatory skill gate/);
+  assert.match(body,/Before any task or response[\s\S]*?inspect[\s\S]*?skills/i);
+  assert.match(body,/read the full[\s\S]*?SKILL\.md/i);
+  assert.match(body,/mandatory[\s\S]*?not optional|not optional[\s\S]*?mandatory/i);
+  assert.match(body,/re-check skill applicability at the start of each new task/i);
+  assert.match(body,/do not proceed until applicable skills have been read/i);
+});
