@@ -38,3 +38,21 @@ Each scenario has prompt and pass/fail criteria. A future run must record runtim
 
 ## Repository checks
 Dependency install, root lint/typecheck/build/test, and CI were NOT RUN in this environment. Local clone failed because GitHub DNS/network access was unavailable. Root test script is configured as turbo run test, but workspace task scripts must be validated in a real checkout.
+
+
+## Superpowers-style review and entry-skill revision — 2026-10-10
+
+### Source review
+The uploaded Superpowers snapshot was parsed as a flattened export containing 186 file sections and 39,268 lines, including 14 primary `skills/*/SKILL.md` files, supporting skill references, multi-harness bootstrap/plugin code, and harness/plugin tests. The most relevant source files for this change were `skills/using-superpowers/SKILL.md`, `skills/writing-skills/SKILL.md`, and `skills/writing-skills/testing-skills-with-subagents.md`.
+
+The entry skill now adopts the applicable source conventions: a mandatory pre-action gate; forceful instruction ordering; a concrete routing table; red-flag rationalization counters; fail-closed handling when a required skill/reference is inaccessible; a distinction between skill-file presence and runtime activation; and explicit evidence statuses. Rehla's higher-priority project constraints remain in force, especially inline sequential execution only.
+
+### Structural RED/GREEN evidence
+- **RED before skill edit:** `node --test tests/rehla-development.test.mjs` ran in an isolated local fixture containing the fetched prior skill and routing scenario. **14 tests: 8 passed, 6 failed.** The six new assertions found missing mandatory-bootstrap phrasing, the red-flags table, explicit rationalization counters, fail-closed unavailable-skill behavior, process-first/priority wording, and the runtime activation caveat.
+- **GREEN after skill edit:** the same 14 assertions ran against the revised `rehla-development/SKILL.md` and scenario in that isolated fixture. **14 passed, 0 failed.**
+- This result is a local structural contract check. It is not a baseline or post-edit model-behavior evaluation, and it does not prove auto-invocation in Cursor or another Rehla runtime.
+
+### Behavioral and repository verification
+- `REHLA-DEV-001` now includes four pressure/acceptance cases, including a clean-session runtime bootstrap check. **Model behavior: NOT RUN** — no skill-enabled agent evaluator or session trace was available.
+- Full `pnpm test:skills`, install, lint/typecheck/build, and repository CI were **NOT RUN from a checkout of the remote branch**. Remote file contents and commit existence were verified through the repository connector; that is not a full test run.
+- The complete Superpowers method is therefore **not fully reproduced end-to-end**: its documented approach requires before/after live agent pressure evaluations, while only structural RED/GREEN could be executed here. This limitation must remain visible until runtime evidence exists.
