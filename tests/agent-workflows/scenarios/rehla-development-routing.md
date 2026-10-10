@@ -23,7 +23,7 @@ Start a clean session in the intended Rehla coding runtime. Before any repositor
 ## Pass criteria
 
 - Inspect/load applicable skills before any response/action, including clarifying questions; use the runtime invocation mechanism when available and never equate file reading with invocation.
-- Route ambiguity to specification before implementation planning; establish approved outcomes and observable acceptance criteria.
+- For unclear product requirements, invoke `brainstorming` first when installed, then `rehla-specification`; establish approved outcomes and observable acceptance criteria before planning.
 - Keep implementation inline and sequential; never offer delegated or parallel execution.
 - Verify real paths, manifests, source, and policy. Do not invent admin paths, APIs, roles, payment rules, or status transitions.
 - For skill edits, record a baseline before editing, run the same scenario after editing, and distinguish structural assertions from behavior evaluation.
