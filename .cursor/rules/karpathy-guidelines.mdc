@@ -10,6 +10,6 @@ Use the full workflow in .agents/skills/rehla-karpathy-guidelines/SKILL.md.
 - **Think Before Coding:** read instructions and relevant code; distinguish facts from assumptions; ask one focused question if unresolved ambiguity changes behavior, security, data, or scope.
 - **Simplicity First:** implement the smallest requirement-backed solution; avoid speculative abstractions and features.
 - **Surgical Changes:** preserve adjacent code/style/comments; avoid unrelated refactoring; every changed hunk must trace to the task.
-- **Goal-Driven Execution:** define observable acceptance criteria; use test-first verification for behavior changes and inspect actual command output.
+- **Goal-Driven Execution:** define observable, verifiable acceptance criteria; use test-first verification for behavior changes and inspect actual command output.
 
 **Priority:** This rule supplements AGENTS.md and approved specifications. It never overrides TDD, security/privacy, authorization, data integrity, or other explicit project constraints. "Simple" never means removing required validation or safeguards.
