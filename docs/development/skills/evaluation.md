@@ -89,3 +89,20 @@ Compared the Rehla skill with the attached Superpowers `skills/brainstorming/SKI
 - `REHLA-SPEC-001` covers urgency to skip approval, cross-component work with missing business rules, a throwaway feasibility probe, and hidden complexity. It is explicitly **NOT RUN in a live agent runtime** because no skill-enabled agent evaluator/session trace was available.
 - The RED/GREEN result is a local structural contract test, **not** proof that a model follows the skill under pressure or that the runtime auto-loads it.
 - Full `pnpm test:skills`, install, lint/typecheck/build, and repository CI were **NOT RUN from a checkout of the remote branch**. Do not report them as passing.
+
+
+## Planning skill: rehla-planning — 2026-10-10
+
+### Superpowers source applied
+Compared the original Rehla planning stub against the attached `skills/writing-plans/SKILL.md` and `skills/writing-skills/SKILL.md`. The missing contract included an approved-spec precondition, default plan location, scope/decomposition check, file responsibility map, 2–5 minute right-sized steps, mandatory plan header/global constraints, exact per-task files/interfaces, observed RED/GREEN commands, no-placeholder rules, type consistency, and a final spec-coverage self-review. The execution handoff was adapted to Rehla's binding inline/sequential-only rule rather than reproducing Superpowers' subagent option.
+
+### Structural RED/GREEN evidence
+- Added `tests/agent-workflows/rehla-planning.test.mjs` (19 assertions) and `tests/agent-workflows/scenarios/rehla-planning-quality.md` before changing the planning skill.
+- Ran the same final 19-test Node.js suite locally in an isolated fixture using the fetched baseline skill, scenario, and tests. **RED: 19 tests, 3 passed, 16 failed.**
+- Replaced only the skill content, preserving the test and scenario. Ran `node --test tests/agent-workflows/rehla-planning.test.mjs` against the updated candidate in that same fixture. **GREEN: 19 tests, 19 passed, 0 failed.**
+- Final planning skill length: **489 whitespace-delimited words**. The test checks approved spec gating, scope, path and header, task sizing, interfaces, RED/GREEN, placeholders, cross-task types, self-review, inline-only constraints, truthful status reporting, and a 500-word ceiling.
+
+### Behavioral evaluation and full repository checks
+- `REHLA-PLAN-001` covers vague task descriptions under time pressure, unresolved payment/interface rules, placeholder-heavy plans, and pressure to offer parallel agents. **Live agent baseline/post-evaluation: NOT RUN** because no skill-enabled evaluator or session trace is available.
+- Structural GREEN is not evidence that a model follows the plan contract under pressure.
+- Full `pnpm test:skills`, install, lint/typecheck/build, and repository CI were **NOT RUN from a checkout of the remote branch**. Do not report them as passing.
