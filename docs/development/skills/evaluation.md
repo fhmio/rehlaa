@@ -5,6 +5,11 @@ Command: pnpm test:skills (configured as node --test tests/agent-workflows/*.tes
 The existing structural suite was previously run on the generated artifact tree: 5 tests passed, 0 failed. The actual remote branch could not be cloned into this execution container, so the complete suite has not been run from a checkout of this branch.
 Earlier remote static inspection recorded 52 passing checks across core workflow skill metadata/references and 8/8 engineering skill metadata/name/trigger/body checks. These are static checks only.
 
+## Mandatory skill gate in AGENTS.md
+- RED: the new mandatory-gate assertion was run against the prior AGENTS.md and failed because the dedicated gate section did not exist.
+- GREEN: the gate assertions were run with Node's built-in test runner against a fixture containing the new mandatory-gate text: 1 passed, 0 failed.
+- The branch now contains the assertions in tests/agent-workflows/karpathy-guidelines.test.mjs. The complete remote-branch test suite was not run in a real checkout; only focused fixture and remote static inspections were available here.
+
 ## Karpathy integration
 - RED baseline: the new integration test was run in a minimal fixture before its target artifacts existed. Four tests failed; the primary assertion identified the missing Rehla Karpathy skill. The additional integration failures reflected missing files in that fixture. This is structural RED evidence, not baseline evaluation of an LLM.
 - GREEN structural fixture: the focused integration test ran in a populated isolated fixture: 4 passed, 0 failed. This does not mean the same test ran in a checkout of the remote repository and does not prove model behavior.
