@@ -1,0 +1,19 @@
+---
+name: project-overview
+description: نظرة عليا موحّدة للمعمارية وسلوك AI عبر كل التطبيقات.
+alwaysApply: true
+tags: [global, overview]
+---
+
+## Architecture
+- Monorepo: apps/{web,admin,admin-mobile}, packages/{ui-web,ui-native,theme,api,utils,icons,config}.
+- Web/Admin: Next.js App Router. Mobile: Expo + Expo Router v3.
+- Design System: Fork Macaw UI → `@visa/ui-web` + `@visa/ui-native` + `@visa/theme`.
+
+## Principles
+- TypeScript strict. Zod validation على حدود الـ API. RBAC صارم. 
+- MCP → MCV: ابدأ أصغر نسخة مقنعة ثم أكمل الـ Job.
+- كل تغيير وظيفي = اختبار + توثيق موجز.
+
+## When generating code
+- التزم بالقواعد المتخصصة (frontend/api/…)، واذكر أي assumptions.

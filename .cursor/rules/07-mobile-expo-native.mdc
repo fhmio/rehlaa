@@ -1,0 +1,16 @@
+---
+name: mobile-expo-native
+description: Expo/Router، أداء الموبايل، رفع المستندات.
+globs: ["apps/admin-mobile/**"]
+autoAttach: true
+tags: [mobile, expo]
+---
+
+## Router
+- Expo Router v3 + تبويبات نظيفة.
+## Performance
+- تجنّب 3D ثقيل؛ استخدم معاينات 2D.
+- استخدم Reanimated/Moti للحركات الخفيفة.
+
+## Uploads
+- ضغط/تحسين الصور قبل الرفع. تحقق النوع/الحجم محليًا.

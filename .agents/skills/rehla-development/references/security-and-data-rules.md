@@ -1,0 +1,2 @@
+# Security and data rule sources
+Read .cursor/rules/02-security-and-secrets.mdc and .cursor/rules/08-api-rest-prisma.mdc for relevant changes. Project rules state strict RBAC, boundary validation, normalized errors, and no raw Prisma objects returned to UI. Inspect actual auth, upload/storage, and logging implementation before claiming a control exists. Never log credentials, bank receipts, personal documents, or sensitive payloads. Do not invent roles, retention, or access policies.

@@ -1,0 +1,21 @@
+---
+name: code-style-ts
+description: أسلوب TypeScript/ESLint/Imports موحّد.
+alwaysApply: true
+tags: [style, typescript]
+---
+
+## Do
+- `strict: true`, لا `any` إلا مع توثيق السبب.
+- استخدم `type` بدل `interface` للـ DTOs العابرة، و`interface` للـ React props العامة.
+- Imports مرتبة: std → libs → internal (absolute) → relative.
+- دوال صغيرة نقية؛ لا side-effects في util.
+- أسماء واضحة: `isValid`, `toPayload`, `fetchServices`.
+
+## Don’t
+- لا منطق في JSX مباشرة؛ استخرج hooks/helpers.
+- لا تسرّب أنواع Prisma إلى الواجهة؛ استخدم DTOs/Zod.
+
+## Lint
+- ممنوع `console.log` في الإنتاج؛ استخدم logger.
+- ممنوع `var` و `==`; استعمل `const` و `===`.

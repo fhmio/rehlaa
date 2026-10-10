@@ -1,0 +1,3 @@
+# Verified repository architecture
+Inspected main tree contains apps/web and packages/{api,config,icons,theme,ui-web,utils}. Workspace config includes apps/*, packages/*, tooling/*. Root uses pnpm@9.0.0, Turborepo ^2.0.6, TypeScript ^5.4.5. apps/web uses Next.js ^14.2.5 and React ^18.3.1. packages/api provides shared Zod schemas/SDK, not proof of a separately deployed API service.
+README/Cursor rules also mention apps/admin, apps/admin-mobile, packages/ui-native, but those paths were absent from the inspected tree. Verify current revision before assuming they exist. Root scripts include dev/build/typecheck/lint/test; task existence depends on workspace manifests.

@@ -1,0 +1,18 @@
+---
+name: notifications-and-templates
+description: قنوات الإشعارات والقوالب.
+globs: ["server/**/notification*","apps/admin/**/settings/**"]
+autoAttach: true
+tags: [notifications]
+---
+
+## Channels
+- Email (React Email), WhatsApp, Telegram, SMS.
+- تفضيلات المستخدم لكل مرحلة.
+
+## Templates
+- استخدم متغيّرات: {{name}}, {{service}}, {{step}}, {{link}}.
+- وفر معاينة template قبل الإرسال.
+
+## Queue
+- BullMQ مع Retry/Backoff وتسجيل في NotificationLog.

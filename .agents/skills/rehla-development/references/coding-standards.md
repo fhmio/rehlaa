@@ -1,0 +1,2 @@
+# Coding standards source map
+Read the closest applicable .cursor/rules/*.mdc before coding. Existing rule groups cover project overview, TypeScript, security/secrets, Git, Next.js web, admin UI, design system, REST/Prisma/Zod, uploads/storage, notifications, workflow tracking, testing/CI, observability, accessibility/RTL/i18n, performance, and templates/generators. Verify each file exists before referencing it. Follow current conventions and make the smallest task-scoped change.

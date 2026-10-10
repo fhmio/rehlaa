@@ -1,0 +1,17 @@
+{
+  "name": "@visa/config",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Shared config presets for tsconfig/eslint/prettier/tailwind/postcss",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./tsconfig/base": "./tsconfig/base.json",
+    "./eslint": "./eslint/index.cjs",
+    "./prettier": "./prettier/index.cjs",
+    "./postcss": "./postcss/postcss.config.cjs",
+    "./tailwind": "./tailwind/tailwind.config.cjs"
+  }
+}
+
+

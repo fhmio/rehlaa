@@ -1,0 +1,18 @@
+---
+name: api-rest-prisma
+description: REST Handlers + Prisma + Zod.
+globs: ["apps/**/app/api/**","server/**"]
+autoAttach: true
+tags: [api, backend]
+---
+
+## Contract
+- كل handler يبدأ بـ parse/validate (Zod).
+- أخطاء موحّدة: { code, message, details? } مع status صحيح.
+
+## Prisma
+- استخدم Transactions للعمليات المركبة.
+- لا تعيد كائنات Prisma خام إلى الواجهة.
+
+## Status Map
+- 200/201 نجاح، 400 مدخلات خاطئة، 401/403 صلاحيات، 404 ليس موجودًا، 409 تضارب، 429 حدود، 5xx أخطاء.
