@@ -116,3 +116,9 @@ test("design-gate scenario defines pressure cases and evaluation limits", () => 
   assert.match(scenario, /approval|approve/i);
   assert.match(scenario, /architectural|cross.?component|subsystem/i);
 });
+
+
+test("specification workflow remains concise enough for reliable discovery", () => {
+  const wordCount = skill.trim().split(/\\s+/).length;
+  assert.ok(wordCount < 500, `specification skill has ${wordCount} whitespace-delimited words; expected fewer than 500`);
+});
