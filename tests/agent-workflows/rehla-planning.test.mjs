@@ -10,7 +10,7 @@ const scenarioPath = "tests/agent-workflows/scenarios/rehla-planning-quality.md"
 
 test("planning only begins from an approved, sufficiently clear specification", () => {
   assert.match(skill, /approved specification|approved spec/i);
-  assert.match(skill, /before (?:touching|writing|changing) code|before implementation/i);
+  assert.match(skill, /before (?:touching|writing|changing) code|before code changes|before implementation/i);
   assert.match(skill, /approval, scope, or a business rule is unresolved|unresolved[^\n]*(?:requirement|decision)/i);
 });
 
