@@ -14,8 +14,9 @@
 5. Never claim a command passed unless run and output inspected. List blocked/unrun checks.
 6. Never invent endpoints, roles, transitions, payment/data rules, package paths, or commands. Record gaps.
 7. Respect TypeScript, Zod/API, UI, security, RTL/accessibility, and Git rules in .cursor/rules/.
-8. Review changes against spec and evidence; do not invent findings.
-9. Branch finishing and product release are separate. Shared pushes, merges, publishing, or releases require explicit authorization.
+8. Apply rehla-karpathy-guidelines when framing tasks, interpreting ambiguity, choosing scope, coding, reviewing, or refactoring: think before coding, choose the simplest requirement-backed solution, keep the diff surgical, and define verifiable success criteria. These principles never relax TDD/security/approved decisions.
+9. Review changes against spec and evidence; do not invent findings.
+10. Branch finishing and product release are separate. Shared pushes, merges, publishing, or releases require explicit authorization.
 ## Scope guard
 This skills-system change does not authorize product feature work or creating/removing apps. Check approved scope and actual tree.
 ## Completion
