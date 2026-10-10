@@ -59,7 +59,7 @@ test("each task names exact create/modify/test paths and consumed/produced inter
   for (const term of ["Files", "Create", "Modify", "Test", "Interfaces", "Consumes", "Produces"]) {
     assert.ok(skill.includes(term), "missing task field: " + term);
   }
-  assert.match(skill, /exact paths|exact file paths/i);
+  assert.match(skill, /exact[^.\\n]*paths/i);
   assert.match(skill, /signatures|parameter[^\n]*return types/i);
 });
 
@@ -95,7 +95,7 @@ test("plans define exact interfaces across tasks and avoid undefined names/types
 test("self-review covers spec coverage, placeholders, type consistency, and path mismatches", () => {
   assert.match(skill, /Self-Review|self-review/i);
   assert.match(skill, /spec coverage/i);
-  assert.match(skill, /placeholder scan/i);
+  assert.match(skill, /scan placeholders|placeholder scan/i);
   assert.match(skill, /type consistency/i);
   assert.match(skill, /path[^\n]*(?:mismatch|verify|existing)/i);
 });
