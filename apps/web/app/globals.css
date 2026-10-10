@@ -1,8 +1,0 @@
-@import "@visa/ui-web/styles.css";
-
-html[dir="rtl"] body { direction: rtl; }
-
-.container{ max-width: 1024px; margin: 0 auto; padding: 1rem; }
-.grid{ display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-
-

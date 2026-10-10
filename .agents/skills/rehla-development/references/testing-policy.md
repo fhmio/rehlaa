@@ -1,2 +1,0 @@
-# Testing and validation policy
-.cursor/rules/13-testing-and-ci.mdc documents Vitest/RTL, Playwright, and Detox; verify dependencies/scripts before invoking. Root pnpm test runs turbo run test, but inspected app/package manifests did not define test scripts consistently. The skill structural suite uses Node node:test via pnpm test:skills. It validates artifacts, not model behavior. Scenario markdown under tests/agent-workflows/scenarios requires a suitable agent evaluation runtime and must remain NOT RUN until actually executed.
