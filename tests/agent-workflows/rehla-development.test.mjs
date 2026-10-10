@@ -92,3 +92,9 @@ test("entry skill separates skill-file presence from runtime activation", () => 
   assert.match(skill, /runtime (?:loader|bootstrap)/i);
   assert.match(skill, /runtime acceptance test|clean-session acceptance/i);
 });
+
+
+test("frequently loaded entry skill stays concise", () => {
+  const wordCount = skill.trim().split(/\\s+/).length;
+  assert.ok(wordCount < 650, `entry skill has ${wordCount} whitespace-delimited words; expected fewer than 650`);
+});
