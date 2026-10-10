@@ -20,9 +20,9 @@ Use the runtime loader; read each full applicable `SKILL.md` and reference. Read
 
 ## Route the task
 
-- **Unclear/conflicting requirements:** `rehla-specification`; define outcome, criteria, gaps first.
+- **Unclear/conflicting requirements:** `brainstorming` if available, then `rehla-specification`; define outcome/criteria/gaps first.
 - **Multi-step/cross-file:** `rehla-planning`; map paths/interfaces, dependencies, RED/GREEN tests, coverage.
-- **Approved plan:** `rehla-executing-plans` (+ `executing-plans`); inline/sequential only—never offer delegated or parallel implementation.
+- **Approved plan:** `rehla-executing-plans` (+ `executing-plans`); inline sequentially; never offer subagent/parallel work.
 - **Behavior/bug/contract/refactor:** `rehla-tdd` (+ `test-driven-development`); observe RED, change minimally, verify GREEN, run regressions.
 - **Failure/flaky output:** `rehla-systematic-debugging`; find root cause first.
 - **API/database/auth/security/observability:** load domain skills; verify implementation. **Never infer deployed services, roles/permissions, state transitions, payment rules, or retention policy from names or schemas.**
@@ -40,13 +40,13 @@ Use the runtime loader; read each full applicable `SKILL.md` and reference. Read
 | “Need more context” / “explore the codebase first.” | Load skills before inspection. |
 | “I remember this skill” / “the description is enough.” | Read full current skill/references. |
 | “Urgent, familiar, or overkill.” | No exception; report unrun checks. |
-| “The repo probably has this path, role, endpoint, or transition.” | Verify; names and schemas are not policy. |
+| “Repo probably has this path/role/endpoint/transition.” | Verify; names/schemas are not policy. |
 | “The file exists, so runtime uses it.” | Presence on disk does not prove auto-invocation; test runtime loader/bootstrap with an acceptance test. |
 | “Structural test passed, so the skill works.” | Static checks prove document structure, not model behavior; evaluation **Not run** if unavailable. |
 
 ## Unknowns and completion
 
-For missing/conflicting rules, record the gap and **stop the affected behavior**; continue read-only work. Ask only for essential information. Never invent product rules, paths, or commands. Report **Passed**, **Failed**, **Blocked**, or **Not run**, with files, results, and limits. A scenario file does not prove it ran. Test loading/routing in a clean-session runtime acceptance test or mark **Not run**.
+For missing/conflicting rules, record the gap and **stop the affected behavior**; continue read-only work. Ask only when essential information is absent. Never invent product rules, paths, or commands. Report **Passed**, **Failed**, **Blocked**, or **Not run**, with files, results, and limits. A scenario file does not prove it ran. Test loading/routing in a clean-session runtime acceptance test or mark **Not run**.
 
 ## References
 
