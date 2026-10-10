@@ -17,6 +17,12 @@ Earlier remote static inspection recorded 52 passing checks across core workflow
 - REHLA-KARPATHY-001: scenario exists at tests/agent-workflows/scenarios/karpathy-guidelines.md. Model behavior evaluation remains NOT RUN because no agent evaluation runtime was found/configured here.
 - Full remote branch node test, pnpm install, root lint/typecheck/build/test, and CI: NOT RUN from a real checkout.
 
+## Entry skill: rehla-development
+- **RED structural baseline:** node --test tests/rehla-development.test.mjs was run in an isolated local fixture against the previously fetched rehla-development/SKILL.md. Result: 8 tests, 3 passed, 5 failed. Failures identified gaps in the skill-loading gate, deterministic task-routing contract, repository/policy verification, evidence-based completion statuses, and skill-edit baseline/post-test requirements.
+- **GREEN structural result:** the same eight assertions were run against the revised skill with the routing scenario present: 8 passed, 0 failed. The skill is approximately 500 words and links to its existing references.
+- **REHLA-DEV-001:** tests/agent-workflows/scenarios/rehla-development-routing.md defines three pressure cases and observable pass/fail criteria. This scenario has **NOT RUN** in a skill-enabled model runtime; no such evaluator was available.
+- These results are local fixture checks, not a full run of pnpm test:skills from a checkout of the remote branch and not evidence of model behavior.
+
 ## Behavior scenarios
 | ID | Risk | Status |
 |---|---|---|
@@ -26,6 +32,7 @@ Earlier remote static inspection recorded 52 passing checks across core workflow
 | REHLA-SKILL-004 | Invented domain policy | NOT RUN — no agent evaluator |
 | REHLA-SKILL-005 | Skill edited before baseline | NOT RUN — no agent evaluator |
 | REHLA-KARPATHY-001 | Think before coding, simplicity, surgical changes, goal-driven execution | NOT RUN — no agent evaluator |
+| REHLA-DEV-001 | Entry routing under pressure | NOT RUN — no agent evaluator |
 
 Each scenario has prompt and pass/fail criteria. A future run must record runtime/model, exact context, observed output, result, and untested dimensions. Static checks must not be reported as model-behavior passing.
 
