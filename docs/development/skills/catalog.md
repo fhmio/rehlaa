@@ -4,6 +4,7 @@
 | Skill | Responsibility |
 |---|---|
 | rehla-development | Entry/routing |
+| rehla-karpathy-guidelines | Think before coding, simplicity, surgical diffs, verifiable goals |
 | rehla-specification | Requirements and decision gaps |
 | rehla-planning | Executable task plans |
 | rehla-executing-plans | Sequential Inline Execution |
@@ -29,3 +30,6 @@
 
 ## Deferred domain skills
 No domain-specific skills were authored for payment policy, application transition policy, user roles, notification policy, or reporting policy because detailed approved business requirements were not present in the inspected source set. ApplicationSchema is not a transition policy.
+
+## Karpathy guidelines integration
+The attached Andrej Karpathy Skills source was analyzed and adapted into rehla-karpathy-guidelines, with an always-applied Cursor rule, Rehla-specific examples, and a pressure scenario. It is supplementary: it must not weaken TDD, security, authorization, data integrity, or approved project decisions. Model behavior remains NOT RUN until evaluated in a skill-enabled runtime.
