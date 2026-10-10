@@ -72,3 +72,20 @@ The entry skill now adopts the applicable source conventions: a mandatory pre-ac
 - **GREEN:** after routing to `brainstorming` first when installed, then `rehla-specification`, the same local isolated-fixture suite passed **16/16**. The final published skill is **493 whitespace-delimited words**, and explicitly preserves inline sequential implementation without subagent or parallel work.
 - The corresponding pressure scenario now requires this design-first route when that skill is available: `tests/agent-workflows/scenarios/rehla-development-routing.md`.
 - **Model-behavior baseline/post-evaluation: NOT RUN.** The RED/GREEN evidence above is structural only; no live agent runtime was available to demonstrate actual bootstrap loading or behavioral compliance. Full remote-branch `pnpm test:skills` and repository CI also remain NOT RUN from a real checkout.
+
+
+## Specification skill: rehla-specification — 2026-10-10
+
+### Superpowers source applied
+Compared the Rehla skill with the attached Superpowers `skills/brainstorming/SKILL.md` and the method in `skills/writing-skills/SKILL.md`. The missing capabilities were the three path classification (Spike / Bounded / Architectural), approval gates, path-specific artifacts, escalation when hidden complexity appears, reviewable architectural design, written-spec self-review and user review, and explicit red-flag counters.
+
+### Structural RED/GREEN
+- Added `tests/agent-workflows/rehla-specification.test.mjs` and `tests/agent-workflows/scenarios/rehla-specification-design-gates.md` **before editing the skill**.
+- **RED baseline:** executed the 17 structural assertions in a clean local fixture with the prior published skill and the pressure-scenario file. Result: **17 total, 2 passed, 15 failed**. The existing basic skill only passed the scenario-file contract and word-count bound; it lacked the tested workflow behavior.
+- **GREEN candidate:** after updating the skill, executed the same 17 structural assertions in the same local-fixture setup. Result: **17 passed, 0 failed**. Node's built-in `node:test` runner produced the TAP summary: 17 tests, 17 pass, 0 fail.
+- The final skill is **492 whitespace-delimited words** and includes all three paths, approval gates, escalation/no-downgrade, scope decomposition, sourced/testable requirements, the written-spec review gate, no guessed business policy, and inline-only execution.
+
+### Behavioral evaluation and full repository checks
+- `REHLA-SPEC-001` covers urgency to skip approval, cross-component work with missing business rules, a throwaway feasibility probe, and hidden complexity. It is explicitly **NOT RUN in a live agent runtime** because no skill-enabled agent evaluator/session trace was available.
+- The RED/GREEN result is a local structural contract test, **not** proof that a model follows the skill under pressure or that the runtime auto-loads it.
+- Full `pnpm test:skills`, install, lint/typecheck/build, and repository CI were **NOT RUN from a checkout of the remote branch**. Do not report them as passing.
