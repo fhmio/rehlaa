@@ -56,3 +56,39 @@ test("routing scenario declares evaluation status and observable pass criteria",
   assert.match(scenario, /## Pass criteria/);
   assert.match(scenario, /## Fail criteria/);
 });
+
+
+test("entry skill is a mandatory bootstrap before any response or action", () => {
+  assert.match(skill, /before any response or action/i);
+  assert.match(skill, /including clarifying questions/i);
+  assert.match(skill, /before (?:exploring the codebase|inspecting project files)/i);
+  assert.match(skill, /not optional|no exceptions/i);
+});
+
+test("entry skill includes a red-flags rationalization table", () => {
+  assert.match(skill, /## Red Flags[^\\n]*STOP/i);
+  assert.match(skill, /\\| (?:Thought|Excuse) \\| Reality \\|/i);
+});
+
+test("red flags counter the known skill-skipping rationalizations", () => {
+  for (const pattern of [/simple (?:question|task)/i, /need more context/i, /explor(?:e|ing) (?:the )?codebase|inspect(?:ing)? (?:the )?files/i, /remember(?:ing)? (?:this|the) skill|know what (?:the skill|that) means/i, /urgent|familiar|overkill/i]) {
+    assert.match(skill, pattern, `missing rationalization counter: ${pattern}`);
+  }
+});
+
+test("unavailable required skill is an explicit blocker, not silently bypassed", () => {
+  assert.match(skill, /required skill[^\\n]*(?:inaccessible|unavailable)/i);
+  assert.match(skill, /stop the affected (?:work|workflow|task)/i);
+  assert.match(skill, /do not pretend[^\\n]*invoked/i);
+});
+
+test("entry skill makes process-first and instruction-priority ordering explicit", () => {
+  assert.match(skill, /process skills first/i);
+  assert.match(skill, /user instructions[^\\n]*(?:take precedence|higher priority)/i);
+});
+
+test("entry skill separates skill-file presence from runtime activation", () => {
+  assert.match(skill, /presence on disk[^.]*not prove[^.]*auto-?invocation/i);
+  assert.match(skill, /runtime (?:loader|bootstrap)/i);
+  assert.match(skill, /runtime acceptance test|clean-session acceptance/i);
+});
