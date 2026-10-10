@@ -96,5 +96,5 @@ test("entry skill separates skill-file presence from runtime activation", () => 
 
 test("frequently loaded entry skill stays concise", () => {
   const wordCount = skill.trim().split(/\\s+/).length;
-  assert.ok(wordCount < 650, `entry skill has ${wordCount} whitespace-delimited words; expected fewer than 650`);
+  assert.ok(wordCount < 500, `entry skill has ${wordCount} whitespace-delimited words; expected fewer than 500`);
 });
